@@ -11,4 +11,7 @@ if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
     add_custom_command(TARGET kind7_example POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE_DIR:iris_image_record>/iris_image_record.dll $<TARGET_FILE_DIR:kind7_example>
     )
+    add_custom_command(TARGET kind7_example POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE_DIR:libjasper>/libjasper.dll $<TARGET_FILE_DIR:kind7_example>
+    )
 endif()                                                
