@@ -139,6 +139,10 @@ void enroll_identify(uint8_t *pixels, int width, int height) {
  * an input.
  */
 int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    std::cerr << "Exactly one argument is needed: filename\n";
+    return 1;
+  }
   std::string file(argv[1]);
   unsigned int width = WIDTH;   // Width of frame or image in pixels
   unsigned int height = HEIGHT; // Height of frame or image in pixels
@@ -147,7 +151,7 @@ int main(int argc, char *argv[]) {
   std::vector<char> buf(width * height);
   std::ifstream in(file, std::ios_base::in | std::ios_base::binary);
   if (!in.is_open()) {
-    std::cerr << file << " not open.\n";
+    std::cerr <<"Can not open input file.\n";
     return 1;
   }
   in.read(buf.data(), width * height);

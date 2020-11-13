@@ -275,6 +275,10 @@ void capture_kind7_jpeg2000(uint8_t *pixels, int width, int height,
  */
 
 int main(int argc, char *argv[]) {
+  if (argc != 2) {
+    std::cerr << "Exactly one argument is needed: filename\n";
+    return 1;
+  }
   std::string file(argv[1]);
   std::vector<uint8_t> buffer(BUFFER_SIZE);
   uint8_t *pixels = buffer.data();
