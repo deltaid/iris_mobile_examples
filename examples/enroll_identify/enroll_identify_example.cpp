@@ -148,7 +148,7 @@ int main(int argc, char *argv[]) {
   std::ifstream in(file, std::ios_base::in | std::ios_base::binary);
   if (!in.is_open()) {
     std::cerr << file << " not open.\n";
-    return;
+    return 1;
   }
   in.read(buf.data(), width * height);
 
