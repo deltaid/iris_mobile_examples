@@ -1,3 +1,4 @@
+/// @file example.cpp
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -120,10 +121,27 @@ void enroll_identify(uint8_t *pixels, int width, int height) {
   }
 }
 
+/**
+ * @brief Predefined image width for this example.
+ *
+ */
+#define WIDTH (2336)
+/**
+ * @brief Predefined image height for this example.
+ *
+ */
+#define HEIGHT (769)
+
+/**
+ * @brief Entry point of the example.
+ *
+ * Requires the binary file with RAW frame of size @ref WIDTH x @ref HEIGHT as
+ * an input.
+ */
 int main(int argc, char *argv[]) {
   std::string file(argv[1]);
-  unsigned int width = 2336; // Width of frame or image in pixels
-  unsigned int height = 769; // Height of frame or image in pixels
+  unsigned int width = WIDTH;   // Width of frame or image in pixels
+  unsigned int height = HEIGHT; // Height of frame or image in pixels
   unsigned int depth = 0;
 
   std::vector<char> buf(width * height);

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(kind7)
 
-add_executable(kind7_example example.cpp)
+add_executable(kind7_example kind7_example.cpp)
 target_link_libraries(kind7_example PRIVATE iris_mobile_v2 iris_image_record utils)
 
 if(${CMAKE_SYSTEM_NAME} MATCHES "Windows")
