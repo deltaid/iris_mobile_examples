@@ -261,10 +261,6 @@ void capture_kind7_jpeg2000(uint8_t *pixels, int width, int height,
   name.replace(name.find(".pgm"), 4, "_kind7_unpacked.pgm");
   write_pgm(name.c_str(), unpacked.data(), IRM2_CROPPED_WIDTH,
             IRM2_CROPPED_HEIGHT);
-
-  name = name_prefix;
-  name.replace(name.find(".pgm"), 4, "_tmp_tmp.pgm");
-  write_pgm(name.c_str(), pixels, width, height);
 }
 
 
