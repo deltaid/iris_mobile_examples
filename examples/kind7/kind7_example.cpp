@@ -290,4 +290,5 @@ int main(int argc, char *argv[]) {
   std::cout << "Capture -> kind7 -> identify started\n";
   capture_kind7_jpeg2000(pixels, width, height, file);
   std::cout << "Capture -> kind7 -> identify ended\n";
+  return 0;
 }

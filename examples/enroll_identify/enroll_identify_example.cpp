@@ -153,4 +153,5 @@ int main(int argc, char *argv[]) {
   in.read(buf.data(), width * height);
 
   enroll_identify((uint8_t *)buf.data(), width, height);
+  return 0;
 }
