@@ -1,0 +1,5 @@
+.vscode/
+build/
+build_linux/
+build_win/
+examples/.vs/

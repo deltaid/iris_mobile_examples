@@ -151,7 +151,7 @@ int main(int argc, char *argv[]) {
   std::vector<char> buf(width * height);
   std::ifstream in(file, std::ios_base::in | std::ios_base::binary);
   if (!in.is_open()) {
-    std::cerr <<"Can not open input file.\n";
+    std::cerr << "Can not open input file.\n";
     return 1;
   }
   in.read(buf.data(), width * height);

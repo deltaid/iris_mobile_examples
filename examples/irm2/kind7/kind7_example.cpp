@@ -201,10 +201,23 @@ void capture_kind7_jpeg2000(uint8_t *pixels, int width, int height,
   // Extract kind 7 type of image
   rc = irm2_get_kind7_image(ctx.memory, IRM2_EYE_UNDEF, IRM2_CROPPED_WIDTH,
                             IRM2_CROPPED_HEIGHT, cropped);
+
   // Save kind 7 image
   std::string name(name_prefix);
   name.replace(name.find(".pgm"), 4, "_kind7.pgm");
   write_pgm(name.c_str(), cropped, IRM2_CROPPED_WIDTH, IRM2_CROPPED_HEIGHT);
+
+  // Extract kind 3 type of image
+  rc = irm2_get_kind3_image(ctx.memory, IRM2_EYE_UNDEF, IRM2_CROPPED_WIDTH,
+                            IRM2_CROPPED_HEIGHT, cropped);
+
+  // Save kind 3 image
+  name = name_prefix;
+  name.replace(name.find(".pgm"), 4, "_kind3.pgm");
+  write_pgm(name.c_str(), cropped, IRM2_CROPPED_WIDTH, IRM2_CROPPED_HEIGHT);
+
+  irm2_eye_info eyes[2];
+  irm2_get_eye_info(ctx.memory, eyes, sizeof(irm2_eye_info));
 
   //-----------------------Packing customized JPEG2000, for more see
   // iris_image_record.h-----------------
@@ -263,11 +276,11 @@ void capture_kind7_jpeg2000(uint8_t *pixels, int width, int height,
             IRM2_CROPPED_HEIGHT);
 }
 
-
 /**
  * @brief Entry point of the example.
  *
- * Requires the `.pgm` binary file with image of size @ref WIDTH x @ref HEIGHT as an input.
+ * Requires the `.pgm` binary file with image of size @ref WIDTH x @ref HEIGHT
+ * as an input.
  */
 
 int main(int argc, char *argv[]) {
@@ -290,5 +303,6 @@ int main(int argc, char *argv[]) {
   std::cout << "Capture -> kind7 -> identify started\n";
   capture_kind7_jpeg2000(pixels, width, height, file);
   std::cout << "Capture -> kind7 -> identify ended\n";
+
   return 0;
 }
