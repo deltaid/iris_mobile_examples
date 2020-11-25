@@ -64,8 +64,8 @@ void enroll_identify(uint8_t *image, int width, int height) {
 
   CHECK(ire3_extract_features(image, width, height, features, size,
                               &feature_size, &eye_info, sizeof(ire3_eye_info),
-                              (void *)working_set, set_size, &settings,
-                              NULL) == IRE3_STATUS_OK,
+                              (void *)working_set, set_size,
+                              &settings) == IRE3_STATUS_OK,
         IRE3_STATUS_FAIL);
 
   CHECK(ire3_deserialize_features(features, feature_size, des_ftr, des_size) ==

@@ -49,7 +49,7 @@ void ire_kind7(uint8_t *pixels, int width, int height,
   images.kind7_pixels = kind7;
   images.kind3_pixels = kind3;
 
-  ire3_extract_features(pixels, width, height, features, max_features_size,
+  ire3_extract_features_with_images(pixels, width, height, features, max_features_size,
                         NULL, &eye_info, sizeof(eye_info), working_set,
                         working_set_size, &settings, &images);
   std::cerr << "Sharpness = " << eye_info.sharpness << "\n";
